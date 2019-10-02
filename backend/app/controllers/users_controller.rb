@@ -5,13 +5,16 @@ class UsersController < ApplicationController
     end
 
     def create_user
-        user = User.create({
-            username: params[:name],
-            x: 0,
-            y: 0,
-            score: 0
-        })
-        render json: user
+        user = User.find_by({ username: params[:name] })
+        if !user
+            user = User.create({
+                username: params[:name],
+                x: 0,
+                y: 0,
+                score: 0
+            })
+            render json: user
+        end
     end
 
     def show
@@ -27,7 +30,7 @@ class UsersController < ApplicationController
         })
         render json: user 
     end
-    
+
     # def authenticate
 	# 	@user = User.find_by({ username: params[:username] })
 	# 	# byebug
