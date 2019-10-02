@@ -2,15 +2,16 @@
 document.querySelector('.level-1-page').style.display = 'none';
 document.querySelector('.game-over-page').style.display = 'none';
 
-let moveableShip = createShip('red');
+let moveableShip
+const divLevel1 = document.querySelector(".level-1-page")
 
-// async function fetchUser(){
-//     let response = await fetch('http://localhost:3000/users/1') //interpolate id from login 
-//     let position = await response.json()
-//     moveableShip = createShip('red')
-//     document.body.append(moveableShip.body)
-// }
-// fetchUser()
+async function fetchUser(id){
+    let response = await fetch('http://localhost:3000/users/${id}') //?interpolate id from login 
+    let position = await response.json()
+    moveableShip = createShip(position.x, position.y, 'red')
+    divLevel1.append(moveableShip)
+}
+//fetchUser() //call after submitting player name
 
 document.addEventListener('keydown', function(e){
     if(e.repeat == false){
