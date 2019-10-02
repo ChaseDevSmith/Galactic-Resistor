@@ -4,8 +4,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :username
       t.float :x
       t.float :y
-      t.float :points
-      t.integer :ship_id
+      t.float :score
+      t.string :image_src
 
       t.timestamps
     end
