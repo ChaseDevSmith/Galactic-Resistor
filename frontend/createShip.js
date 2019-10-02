@@ -1,13 +1,15 @@
+
 function createShip(color){
+    
     const ASSET_ROOT = `./assets/${color}-ship`
-    const level_2 = document.querySelector(".level-1-page")
+    const divLevel1 = document.querySelector(".level-1-page")
     const ship = document.createElement('img')
     ship.style.width = '75px'
     ship.style.position = 'absolute'
     ship.style.left = '0px'
     ship.style.top = '150px'
     ship.src = `${ASSET_ROOT}/static.gif`
-    level_2.append(ship)
+    divLevel1.append(ship)
 
     let direction = null
     let speed = 0.5
@@ -35,6 +37,8 @@ function createShip(color){
     }, 60 / 1000)
 
     return {
+
+        body: divLevel1,
 
         flyRight: function(){
             ship.src = `${ASSET_ROOT}/flyRight.gif`

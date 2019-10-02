@@ -1,14 +1,16 @@
-shipSubmit = document.getElementById("submit_ship")
-document.body.style.backgroundImage = `url(./assets/galaxy.jpg)`;
-document.querySelector('.level-1-page').style.visibility = 'hidden';
-shipSubmit.addEventListener("click", function(e){
-    e.preventDefault()
-    
-    document.querySelector('.login-page').style.visibility = 'hidden';
-    document.querySelector('.level-1-page').style.visibility = 'visible';
 
-})
-const moveableShip = createShip('red')
+document.querySelector('.level-1-page').style.display = 'none';
+document.querySelector('.game-over-page').style.display = 'none';
+
+let moveableShip = createShip('red');
+
+// async function fetchUser(){
+//     let response = await fetch('http://localhost:3000/users/1') //interpolate id from login 
+//     let position = await response.json()
+//     moveableShip = createShip('red')
+//     document.body.append(moveableShip.body)
+// }
+// fetchUser()
 
 document.addEventListener('keydown', function(e){
     if(e.repeat == false){
@@ -29,9 +31,17 @@ document.addEventListener('keydown', function(e){
 
 document.addEventListener('keyup', function(){
     moveableShip.stop()
+    fetch('http://localhost:3000/users/1', {
+        method: 'PATCH',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "x": parseFloat(moveableShip.body.style.left),
+            "y": parseFloat(moveableShip.body.style.top)
+        })
+    })
 })
-
-
 
 
 function sleep(duration){
