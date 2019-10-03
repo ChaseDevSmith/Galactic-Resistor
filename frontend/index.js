@@ -1,6 +1,7 @@
 
 document.querySelector('.level-1-page').style.display = 'none';
-document.querySelector('.game-over-page').style.display = 'none';
+document.querySelector('.you-lose-page').style.display = 'none';
+document.querySelector('.winner-page').style.display = 'none';
 
 let moveableShip
 const divLevel1 = document.querySelector(".level-1-page")
@@ -45,12 +46,6 @@ async function fetchUser(id) {
         }
     })
     
-    
-    function sleep(duration) {
-        return new Promise(function (resolve) {
-            setTimeout(resolve, duration)
-        })
-    }
 }
 
 
