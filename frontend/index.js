@@ -6,7 +6,7 @@ let moveableShip
 const divLevel1 = document.querySelector(".level-1-page")
 
 async function fetchUser(id) {
-    let response = await fetch(`http://localhost:3000/users/${id}`) //?interpolate id from login 
+    let response = await fetch(`http://localhost:3000/users/${id}`) //interpolate id from login 
     let position = await response.json()
     moveableShip = createShip(position.x, position.y, 'red')
     console.log(moveableShip)
@@ -32,7 +32,7 @@ async function fetchUser(id) {
     document.addEventListener('keyup', function () {
         if (moveableShip) {
             moveableShip.stop()
-            fetch(`http://localhost:3000/users/${id}`, {    //pass the id somehow 
+            fetch(`http://localhost:3000/users/${id}`, {    
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,5 +52,5 @@ async function fetchUser(id) {
         })
     }
 }
-//fetchUser() //call after submitting player name
+
 
