@@ -1,7 +1,7 @@
 let form = document.querySelector('form')
 let nameInput = document.getElementById('name_input')
-const playerDisplay = document.getElementById('player_display')
-const scoreDisplay = document.getElementById('score_display')
+const playerDisplay = document.querySelectorAll('.player_display')
+const scoreDisplay = document.querySelectorAll('.score_display')
 
 
 form.addEventListener('submit', function (e) {
@@ -24,9 +24,13 @@ form.addEventListener('submit', function (e) {
             return response.json()
         })
         .then(function (user) {  
-            console.log("the user is:", user)  
-            playerDisplay.innerText = `Player: ${user.username}`
-            scoreDisplay.innerText = `Score: ${user.score}`
+            console.log("the user is:", user)
+            for (i = 0; i < playerDisplay.length; i++) {
+                playerDisplay[i].innerText = `Player: ${user.username}`
+                }
+            for (i = 0; i < scoreDisplay.length; i++) {
+                scoreDisplay[i].innerText = `Score: ${user.score}`
+              }
             fetchUser(user.id)
             
         })

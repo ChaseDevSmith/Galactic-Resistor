@@ -4,6 +4,7 @@ document.querySelector('.you-lose-page').style.display = 'none';
 document.querySelector('.winner-page').style.display = 'none';
 
 let moveableShip
+let myObstacle;     //myObstacle is somehow created with chase stuff
 const divLevel1 = document.querySelector(".level-1-page")
 
 async function fetchUser(id) {
@@ -47,5 +48,17 @@ async function fetchUser(id) {
     })
     
 }
+
+
+// function detectCollision() {
+//     if (moveableShip.crashWith(myObstacle)) {       //write crashwith fxn, myObstable var, stop fxn for game area 
+//         document.querySelector('.you-lose-page').style.display = 'block';                       
+//     }
+//     if (moveableShip.crashWith(bigBoss)) {  
+//         document.querySelector('.winner-page').style.display = 'block';  //write bigBoss var
+//     }
+// }
+
+
 
 

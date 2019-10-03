@@ -13,6 +13,7 @@ function createShip(x, y, color){
 
     let direction = null
     let speed = 0.5
+    
 
     setInterval(function(){
         const left = parseFloat(ship.style.left)
@@ -33,8 +34,26 @@ function createShip(x, y, color){
         if(direction == 'down'){
             ship.style.top = `${top+speed}px`
         }
+        
+        //detectCollision()
 
     }, 60 / 1000)
+
+    // this.crashWith = function(otherobj) {
+    //     var myleft = this.x;
+    //     var myright = this.x + (this.width);
+    //     var mytop = this.y;
+    //     var mybottom = this.y + (this.height);
+    //     var otherleft = otherobj.x;
+    //     var otherright = otherobj.x + (otherobj.width);
+    //     var othertop = otherobj.y;
+    //     var otherbottom = otherobj.y + (otherobj.height);
+    //     var crash = true;
+    //     if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+    //         crash = false;
+    //     }
+    //     return crash;
+    // }
 
     return {
 
