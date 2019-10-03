@@ -4,7 +4,7 @@ function createShip(color){
     const ship = document.createElement('img')
     ship.style.width = '75px'
     ship.style.position = 'absolute'
-    ship.style.left = '0px'
+    ship.style.left = '100px'
     ship.style.top = '150px'
     ship.src = `${ASSET_ROOT}/static.gif`
     level_1.append(ship)
@@ -13,6 +13,13 @@ function createShip(color){
     
     let direction = null
     let speed = 0.5
+    function someFunction(){
+        ship.style.left = '100px'
+        ship.style.top = '150px'
+        direction = null
+        ship.src = `${ASSET_ROOT}/static.gif`
+
+    }
 
     setInterval(function(){
         const left = parseFloat(ship.style.left)
@@ -33,7 +40,38 @@ function createShip(color){
         if(direction == 'down'){
             ship.style.top = `${top+speed}px`
         }
+        
+        if(ship.x > window.innerWidth ){
+               alert('GAME OVER')
+            console.log("outOfBoundsX")
+            someFunction()
+         
+        }
+        if(ship.y > window.innerHeight){
+               alert('GAME OVER')
+            console.log("outOfBoundsY")
+            someFunction()
 
+           
+        }
+        if(ship.y < 0 ){
+               alert('GAME OVER')
+            console.log("outOfBoundsY")
+            someFunction()
+
+        
+        }
+        if(ship.x < 0 ){
+               alert('GAME OVER')
+            console.log("outOfBoundsX")
+            someFunction()
+
+           
+        }else{
+            console.log("shipX:", ship.x)
+            console.log("shipY:", ship.y)
+        }
+            
     }, 60 / 1000)
 
     return {
