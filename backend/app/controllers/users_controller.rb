@@ -14,6 +14,8 @@ class UsersController < ApplicationController
                 score: 0
             })
             render json: user
+        else
+            render json: user
         end
     end
 

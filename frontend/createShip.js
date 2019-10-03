@@ -38,7 +38,7 @@ function createShip(x, y, color){
 
     return {
 
-        body: divLevel1,
+        body: ship,
 
         flyRight: function(){
             ship.src = `${ASSET_ROOT}/flyRight.gif`

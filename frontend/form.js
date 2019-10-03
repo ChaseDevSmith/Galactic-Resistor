@@ -2,7 +2,7 @@ let form = document.querySelector('form')
 let nameInput = document.getElementById('name_input')
 const playerDisplay = document.getElementById('player_display')
 const scoreDisplay = document.getElementById('score_display')
-let moveableShip = createShip('red');
+// let moveableShip = createShip('red');
 
 form.addEventListener('submit', function (e) {
     e.preventDefault()
