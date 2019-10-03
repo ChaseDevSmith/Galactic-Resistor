@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Ship.create( name: "Ship1", image: "sdafsd")
-User.create( username: "bob", x: 100, y: 100, ship_id: 1, points: 0)
+
+User.create( username: "bob", x: 100, y: 100, score: 0)

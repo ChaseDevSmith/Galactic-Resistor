@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2019_09_30_162508) do
     t.string "username"
     t.float "x"
     t.float "y"
-    t.float "points"
-    t.integer "ship_id"
+    t.float "score"
+    t.string "image_src"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

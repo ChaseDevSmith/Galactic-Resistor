@@ -1,4 +1,6 @@
-function createShip(color){
+
+function createShip(x, y, color){
+    
     const ASSET_ROOT = `./assets/${color}-ship`
     const level_1 = document.querySelector(".level-1-page")
     const ship = document.createElement('img')
@@ -68,13 +70,31 @@ function createShip(color){
 
            
         }else{
-            console.log("shipX:", ship.x)
-            console.log("shipY:", ship.y)
+            // console.log("shipX:", ship.x)
+            // console.log("shipY:", ship.y)
         }
             
     }, 60 / 1000)
 
+    // this.crashWith = function(otherobj) {
+    //     var myleft = this.x;
+    //     var myright = this.x + (this.width);
+    //     var mytop = this.y;
+    //     var mybottom = this.y + (this.height);
+    //     var otherleft = otherobj.x;
+    //     var otherright = otherobj.x + (otherobj.width);
+    //     var othertop = otherobj.y;
+    //     var otherbottom = otherobj.y + (otherobj.height);
+    //     var crash = true;
+    //     if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+    //         crash = false;
+    //     }
+    //     return crash;
+    // }
+
     return {
+
+        body: ship,
 
         flyRight: function(){
             ship.setAttribute("class","")
@@ -113,10 +133,11 @@ function createShip(color){
         },
 
         stop: function(){
+            console.log("WE R STOPPING")
             ship.src = `${ASSET_ROOT}/static.gif`
             
             direction = last_direction
-            console.log(direction)
+            console.log("currentDirection:",direction)
             if(direction === "down"){
                 ship.setAttribute("class","rotate180")
             }
