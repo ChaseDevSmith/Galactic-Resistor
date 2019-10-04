@@ -10,6 +10,8 @@ function createShip(x, y, color){
     ship.style.top = `${y}px`
     ship.src = `${ASSET_ROOT}/static.gif`
     // divLevel1.append(ship)
+    ////let last_direction = null
+    ////let ship_point = null
 
     let direction = null
     let speed = 0.5
