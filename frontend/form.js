@@ -1,5 +1,5 @@
 let form = document.querySelector('form')
-let nameInput = document.getElementById('name_input')
+let nameInput = document.getElementById('name_input_list')
 const playerDisplay = document.querySelectorAll('.player_display')
 const scoreDisplay = document.querySelectorAll('.score_display')
 
@@ -17,7 +17,7 @@ form.addEventListener('submit', function (e) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name: nameInput.value
+            name: nameInput.value   //?
         })
     })
         .then(function (response) {
@@ -35,3 +35,21 @@ form.addEventListener('submit', function (e) {
             
         })
 })
+
+const datalist = document.querySelector("datalist")
+
+fetch('http://localhost:3000/all-users')
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (users) {
+        console.log(users)
+        users.forEach(function(user){
+            const userOption = document.createElement('option')
+            userOption.setAttribute("value", user.username) //? is the value set correctly?
+            datalist.append(userOption)
+        })
+        console.log("the user is:",nameInput)
+
+
+    })

@@ -22,7 +22,11 @@
     <div class="login-page">
         <form>
             <label>Player Name:</label>
-            <input id="name_input" type="text" name="fname"><br><br>
+            <input list="name_input" name="name_input" id="name_input_list">
+            <datalist id="name_input">
+
+           
+            </datalist></br></br>
 
             <input id="submit_ship" type="submit" value="Start Game">
         </form>
@@ -54,6 +58,8 @@
     <script src="level_1.js"></script>
     <script src="createShip.js"></script>
     <script src="index.js"> </script>
+    <link rel="stylesheet" href="styling.css">
+    <script src = "createAstroids.js"></script>
 </body>
 
 </html>
